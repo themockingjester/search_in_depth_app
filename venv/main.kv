@@ -49,11 +49,12 @@
             on_release:app.mainscreen_to_searchitemclass()
 
 
-<Newcan>:
-    name: "hell"
+<searchitemclass>:
+
     canvas.before:
         Color:
             rgba: 1,1,1, 1    # Blue
+        # size and position of Canvas
         Rectangle:
             pos: self.pos
             size: self.size
@@ -62,6 +63,14 @@
         # size and position of Canvas
         Triangle:
             points: 0,root.height,root.width,root.height,0,root.height/8
+        Color:
+            rgba: 0,255,1, 0.8    # Blue
+        # size and position of Canvas
+        Triangle:
+            points: root.width,root.height,root.width,root.height/2,root.width/1.24,root.height/1.2
+
+
+
     FloatLayout:
         ImageButton:
             source: 'back.png'
