@@ -1,0 +1,74 @@
+
+<MainScreen>:
+
+    canvas.before:
+        Color:
+            rgba: 1,1,1, 1    # Blue
+        # size and position of Canvas
+        Rectangle:
+            pos: self.pos
+            size: self.size
+        Color:
+            rgba: 255,0,1, 0.7    # Blue
+        # size and position of Canvas
+        Triangle:
+            points: 0,root.height,root.width,root.height,0,root.height/8
+        Color:
+            rgba: 0,255,1, 0.8    # Blue
+        # size and position of Canvas
+        Triangle:
+            points: root.width,root.height,root.width,root.height/2,root.width/1.24,root.height/1.2
+
+        Color:
+            rgba: 0,0,0, 0.8    # Blue
+        # size and position of Canvas
+        Rectangle:
+            pos:[0.25 *self.size[0],0.19* self.size[1]]
+            size: self.width/2,self.height/1.5
+
+    FloatLayout:
+        id: lay
+
+        ImageButton:
+            source: 'binoculars.png'
+
+            x:root.width/2.68
+            y:root.height/1.5
+            on_release:app.mainscreen_to_searchitemclass()
+        ImageButton:
+            source: 'visits.png'
+
+            x:root.width/2.68
+            y:root.height/2.2
+            on_release:app.mainscreen_to_searchitemclass()
+        ImageButton:
+            source: 'quit.png'
+
+            x:root.width/2.68
+            y:root.height/4.2
+            on_release:app.mainscreen_to_searchitemclass()
+
+
+<Newcan>:
+    name: "hell"
+    canvas.before:
+        Color:
+            rgba: 1,1,1, 1    # Blue
+        Rectangle:
+            pos: self.pos
+            size: self.size
+        Color:
+            rgba: 255,0,1, 0.7    # Blue
+        # size and position of Canvas
+        Triangle:
+            points: 0,root.height,root.width,root.height,0,root.height/8
+    FloatLayout:
+        ImageButton:
+            source: 'back.png'
+
+            top:root.top
+            right:root.right
+            on_release:app.searchitemclass_to_mainscreen()
+
+
+
