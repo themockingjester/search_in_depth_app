@@ -2,7 +2,7 @@ from kivy.app import App
 from kivy.uix.codeinput import CodeInput
 from kivy.lang import Builder
 
-
+from kivy.uix.textinput import TextInput
 from kivy.uix.behaviors import ButtonBehavior
 from kivy.graphics import *
 from kivy.uix import *

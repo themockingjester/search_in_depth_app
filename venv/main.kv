@@ -69,6 +69,12 @@
         Triangle:
             points: root.width,root.height,root.width,root.height/2,root.width/1.24,root.height/1.2
 
+        Color:
+            rgba: 0,0,0, 0.8    # Blue
+        # size and position of Canvas
+        Rectangle:
+            pos:[0.05 *self.size[0],0.06* self.size[1]]
+            size: self.width/1.1,self.height/1.3
 
 
     FloatLayout:
@@ -78,6 +84,11 @@
             top:root.top
             right:root.right
             on_release:app.searchitemclass_to_mainscreen()
+        TextInput:
+
+            hint_text:'Enter text'
+            pos: (root.width/16, root.height/12.70)
+            size_hint: 0.0088*root.width, 0.0072*root.height
 
 
 
