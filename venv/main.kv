@@ -1,6 +1,6 @@
 
 <MainScreen>:
-
+        ########################## this is the first screen there is no issue###############################
     canvas.before:
         Color:
             rgba: 1,1,1, 1    # Blue
@@ -50,6 +50,7 @@
 
 
 <searchitemclass>:
+    ###################### this is the second screen which is having issue as discussed #################
     entry1: entry
     output1: output
     canvas.before:
@@ -106,11 +107,13 @@
             top:root.top
             right:root.right-110
             on_release:app.go()
+        ################################ this is the lower textinput widget ###################
         TextInput:
             id: output
             hint_text:'Enter text'
             pos: (root.width/16, root.height/12.70)
             size_hint: 0.0088*root.width, 0.0072*root.height
+        ############################# this is the upper textinput widget ###################
         TextInput:
             id: entry
 
