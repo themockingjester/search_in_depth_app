@@ -50,7 +50,8 @@
 
 
 <searchitemclass>:
-
+    entry1: entry
+    output1: output
     canvas.before:
         Color:
             rgba: 1,1,1, 1    # Blue
@@ -75,6 +76,9 @@
         Rectangle:
             pos:[0.05 *self.size[0],0.06* self.size[1]]
             size: self.width/1.1,self.height/1.3
+        Rectangle:
+            pos:[0.05 *self.size[0],0.85* self.size[1]]
+            size: self.width/2.4,self.height/8
 
 
     FloatLayout:
@@ -82,13 +86,36 @@
             source: 'back.png'
 
             top:root.top
-            right:root.right
+            right:root.right+25
             on_release:app.searchitemclass_to_mainscreen()
-        TextInput:
+        ImageButton:
+            source: 'pause.png'
 
+            top:root.top
+            right:root.right-20
+            on_release:app.searchitemclass_to_mainscreen()
+        ImageButton:
+            source: 'play.png'
+
+            top:root.top
+            right:root.right-65
+            on_release:app.searchitemclass_to_mainscreen()
+        ImageButton:
+            source: 'rocket.png'
+
+            top:root.top
+            right:root.right-110
+            on_release:app.go()
+        TextInput:
+            id: output
             hint_text:'Enter text'
             pos: (root.width/16, root.height/12.70)
             size_hint: 0.0088*root.width, 0.0072*root.height
+        TextInput:
+            id: entry
+
+            pos: (root.width/16.9, root.height/1.16)
+            size_hint: 0.004*root.width, 0.001*root.height
 
 
 
