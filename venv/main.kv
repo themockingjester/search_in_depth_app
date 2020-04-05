@@ -31,16 +31,16 @@
 
         ImageButton:
             source: 'binoculars.png'
-
+            on_release:app.mainscreen_to_searchitemclass()
             x:root.width/2.68
             y:root.height/1.5
-            on_release:app.mainscreen_to_searchitemclass()
         ImageButton:
+
             source: 'visits.png'
 
             x:root.width/2.68
             y:root.height/2.2
-            on_release:app.mainscreen_to_searchitemclass()
+            on_release:app.mainscreen_to_totalitemclass()
         ImageButton:
             source: 'quit.png'
 
@@ -83,42 +83,128 @@
 
 
     FloatLayout:
-        ImageButton:
-            source: 'back.png'
-
-            top:root.top
-            right:root.right+25
+        Button:
+            text: 'back'
+            size_hint: 0.0009*root.width, 0.0005*root.height
+            pos: (root.width/1.8, root.height/1.09)
             on_release:app.searchitemclass_to_mainscreen()
-        ImageButton:
-            source: 'pause.png'
-
-            top:root.top
-            right:root.right-20
-            on_press:app.pause()
-        ImageButton:
-            source: 'play.png'
-
-            top:root.top
-            right:root.right-65
+        Button:
+            text: 'pause'
+            size_hint: 0.0009*root.width, 0.0005*root.height
+            pos: (root.width/1.2, root.height/1.19)
+            on_release:app.pause()
+        Button:
+            text: 'play'
+            size_hint: 0.0009*root.width, 0.0005*root.height
+            pos: (root.width/1.8, root.height/1.19)
             on_press:app.play()
-        ImageButton:
-            source: 'rocket.png'
-
-            top:root.top
-            right:root.right-110
+        Button:
+            #source: 'rocket.png'
+            text: 'go'
+            size_hint: 0.0009*root.width, 0.0005*root.height
+            pos: (root.width/1.2, root.height/1.09)
             on_release:app.go()
+        Button:
+
+            text: 'stop'
+            size_hint: 0.0009*root.width, 0.0005*root.height
+            pos: (root.width/1.45, root.height/1.14)
+            on_release:app.stop()
         ################################ this is the lower textinput widget ###################
         TextInput:
             id: output
-            hint_text:'Enter text'
+
             pos: (root.width/16, root.height/12.70)
             size_hint: 0.0088*root.width, 0.0072*root.height
         ############################# this is the upper textinput widget ###################
         TextInput:
             id: entry
-
+            hint_text:'Enter text'
             pos: (root.width/16.9, root.height/1.16)
             size_hint: 0.004*root.width, 0.001*root.height
 
+<totalitemclass>:
+    ###################### this is the third screen  #################
+
+    entry: entry
+    req: req
+    canvas.before:
+        Color:
+            rgba: 1,1,1, 1    # Blue
+        # size and position of Canvas
+        Rectangle:
+            pos: self.pos
+            size: self.size
+        Color:
+            rgba: 255,0,1, 0.7    # Blue
+        # size and position of Canvas
+        Triangle:
+            points: 0,root.height,root.width,root.height,0,root.height/8
+        Color:
+            rgba: 0,255,1, 0.8    # Blue
+        # size and position of Canvas
+        Triangle:
+            points: root.width,root.height,root.width,root.height/2,root.width/1.24,root.height/1.2
+
+        Color:
+            rgba: 0,0,0, 0.8    # Blue
+        # size and position of Canvas
 
 
+    FloatLayout:
+
+        ImageButton:
+            source: 'loading.gif'
+            anim_delay: 0.02
+            size_hint: 0.0066*root.width, 0.0022*root.height
+            pos: (root.width/7, root.height/22)
+
+
+        Label:
+            text: '[color=1dd292]Total numbers of records till now are:[/color]'
+            markup : True
+            font_size: root.width/17
+            bold: True
+            #font: 'green'
+            pos: (root.width/2.6, root.height/1.9)
+        Label:
+            id: req
+            text: '0'
+            color: [1,0,0,1]
+            font_size: root.width/11
+            bold: True
+            #font: 'green'
+            pos: (root.width/2.3, root.height/2.6)
+        TextInput:
+            id: entry
+            hint_text:'Enter text'
+            pos: (root.width/16, root.height/1.2)
+            size_hint: 0.003*root.width, 0.0008*root.height
+        Button:
+            text: 'back'
+
+            size_hint: 0.0009*root.width, 0.0005*root.height
+            pos: (root.width/1.8, root.height/1.09)
+            on_release:app.searchitemclass_to_mainscreen()
+        Button:
+            text: 'pause'
+            size_hint: 0.0009*root.width, 0.0005*root.height
+            pos: (root.width/1.2, root.height/1.19)
+            on_release:app.pause()
+        Button:
+            text: 'play'
+            size_hint: 0.0009*root.width, 0.0005*root.height
+            pos: (root.width/1.8, root.height/1.19)
+            on_press:app.play()
+        Button:
+
+            text: 'go'
+            size_hint: 0.0009*root.width, 0.0005*root.height
+            pos: (root.width/1.2, root.height/1.09)
+            on_release:app.go2()
+        Button:
+
+            text: 'stop'
+            size_hint: 0.0009*root.width, 0.0005*root.height
+            pos: (root.width/1.45, root.height/1.14)
+            on_release:app.stop()
