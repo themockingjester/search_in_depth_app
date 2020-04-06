@@ -31,7 +31,7 @@
 
         ImageButton:
             source: 'binoculars.png'
-            on_release:app.mainscreen_to_searchitemclass()
+            on_release:app.mainscreen_to_Search_Item_Class()
             x:root.width/2.68
             y:root.height/1.5
         ImageButton:
@@ -40,7 +40,7 @@
 
             x:root.width/2.68
             y:root.height/2.2
-            on_release:app.mainscreen_to_totalitemclass()
+            on_release:app.mainscreen_to_Total_Item_Class()
         ImageButton:
             source: 'quit.png'
 
@@ -49,7 +49,7 @@
             on_release:app.exit()
 
 
-<searchitemclass>:
+<Search_Item_Class>:
     ###################### this is the second screen which is having issue as discussed #################
     entry1: entry
     output1: output
@@ -88,7 +88,7 @@
             background_color:  0.7,0.2,0,1
             size_hint: 0.0009*root.width, 0.0005*root.height
             pos: (root.width/1.8, root.height/1.09)
-            on_release:app.searchitemclass_to_mainscreen()
+            on_release:app.Search_Item_Class_to_mainscreen()
         Button:
             text: 'pause'
             background_color:  0.7,0.2,0,1
@@ -127,7 +127,7 @@
             pos: (root.width/16.9, root.height/1.16)
             size_hint: 0.004*root.width, 0.001*root.height
 
-<totalitemclass>:
+<Total_Item_Class>:
     ###################### this is the third screen  #################
     img: img
     entry: entry
@@ -190,7 +190,7 @@
             background_color:  0.7,0.2,0,1
             size_hint: 0.0009*root.width, 0.0005*root.height
             pos: (root.width/1.8, root.height/1.09)
-            on_release:app.totalitemclass_to_mainscreen()
+            on_release:app.Total_Item_Class_to_mainscreen()
         Button:
             text: 'pause'
             background_color:  0.7,0.2,0,1
