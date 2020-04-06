@@ -18,7 +18,7 @@ class searchitemclass(Widget):
 class totalitemclass(Widget):
     entry1 = ObjectProperty(None)
     req = ObjectProperty(None)
-
+    img = ObjectProperty(None)
 
 class MainApp(App):
     def build(self):
@@ -45,6 +45,9 @@ class MainApp(App):
         self.records = 0
         return self.screen_manager
 
+    def exit(self):
+        App.stop(self)
+
     def mainscreen_to_searchitemclass(self):
         self.screen_manager.transition.direction = 'left'
         self.screen_manager.current = 'searchitemscreen'
@@ -53,20 +56,26 @@ class MainApp(App):
         self.screen_manager.transition.direction = 'right'
         self.screen_manager.current = 'mainscreen'
 
+    def totalitemclass_to_mainscreen(self):
+        self.stop()
+        self.screen_manager.transition.direction = 'left'
+        self.screen_manager.current = 'mainscreen'
+
     def mainscreen_to_totalitemclass(self):
         self.screen_manager.transition.direction = 'right'
         self.screen_manager.current = 'totalitemscreen'
 
     def pause(self):
         self.status = 1
+        self.total.img.opacity = 0
 
     def play(self):
         self.status = 0
-
+        self.total.img.opacity = 1
     def stop(self):
         self.terminate = 1
-        self.records = 0
 
+        self.total.img.opacity = 0
     def go(self):
         self.t1 = threading.Thread(target=self.starttraversing, args=(self.info_page.entry1.text,))
         self.terminate = 0
@@ -74,6 +83,7 @@ class MainApp(App):
 
     def go2(self):
         self.terminate = 0
+        self.total.img.opacity = 1
         self.t2 = threading.Thread(target=self.starttraversing2, args=(self.total.entry.text,))
         self.t2.start()
 
@@ -97,7 +107,7 @@ class MainApp(App):
         z = '/'
         self.func2(z, lis3, req)
         print(('oooooooooookkkkkkkkkk'))
-
+        self.records = 0
     def func(self, path, lis3, req):
         while (self.status == 1):
             if self.terminate == 1:
